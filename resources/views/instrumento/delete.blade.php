@@ -22,16 +22,33 @@
 
     <main class="container">
     <h1>Formulário de Exclusão de Instrumentos</h1>
+    <div class="alert alert-warning" role="alert">
+      Você tem certeza que deseja excluir este instrumento?
+    </div>
+    <div>
+      <label class="form-label"><strong>Tipo:</strong></label>
+      <p>{{ $instrumento->tipo }}</p>
+    </div>
+    <div>
+      <label class="form-label"><strong>Nome:</strong></label>
+      <p>{{ $instrumento->nome }}</p>
+    </div>
+    <div>
+      <label class="form-label"><strong>Preço:</strong></label>
+      <p>{{ $instrumento->preco }}</p>
+    </div>
     <form action="{{ route('instrumento.destroy', $instrumento->id) }}" method="POST">
         @CSRF
         @method('DELETE')
-        <label for="tipo"> Informe o tipo do Instrumento </label>
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        
+        <!-- <label for="tipo"> Informe o tipo do Instrumento </label>
         <input class="form-control" type="text" name="tipo" id="tipo" value="{{ $instrumento->tipo}}" disabled> <br/>
         <label for="nome"> Informe o nome do Instrumento </label>
         <input class="form-control" type="text" name="nome" id="nome" value="{{ $instrumento->nome}}" disabled> <br/>
         <label for="preco"> Informe o preco do Instrumento </label>
         <input class="form-control" type="text" name="preco" id="preco" value="{{ $instrumento->preco}}" disabled> <br/>
-        <button type="submit" class="btn btn-danger"> Excluir </button>
+        <button type="submit" class="btn btn-danger"> Excluir </button> -->
     </form>
 </body>
 </html>

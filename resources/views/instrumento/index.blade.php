@@ -20,6 +20,11 @@
 
     <main class="container">
         <h1> Instrumentos </h1>
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                {{ $message }}
+            </div>
+        @endif
         <a href="{{ route('instrumento.create') }}" class="btn btn-dark"><b> Inserir Instrumento </b></a>
         <div>
         <table style="table-layout: fixed;" class="table table-stripped table-hover " id="tabela" >
@@ -27,8 +32,7 @@
                 <tr>
                     <td> Tipo </td>
                     <td> Nome </td>
-              
-                    <td > Preço </td>
+                    <td> Preço </td>
                     <td> </td>
                 </tr>
             </thead>
@@ -39,8 +43,9 @@
                     <td>{{ $i->nome }}</td>
                     <td> R$ &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ $i->preco }}</td>
                     <td style="text-align: right;">
+                        <a href="{{ route('instrumento.show', $i->id) }}" class="btn btn-dark"><b> Mostrar </b></a>
                         <a href="{{ route('instrumento.edit', $i->id) }}" class="btn btn-dark"><b> Editar </b></a>
-                        <a href="instrumento/{{$i->id}}/delete" class="btn btn-danger"><b> Excluir </b></a>
+                        <a href="{{ route('instrumento.delete', $i->id) }}" class="btn btn-danger"><b> Excluir </b></a>
                     </td>
                 </tr>
             @endforeach

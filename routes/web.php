@@ -18,4 +18,4 @@ Route::resources([
 
 Route::get('/cliente/{id}/delete', [ClienteController::class, 'delete']);
 
-Route::get('/instrumento/{id}/delete', [InstrumentoController::class, 'delete']);
+Route::get('/instrumento/{id}/delete', [InstrumentoController::class, 'delete'])->name('instrumento.delete');

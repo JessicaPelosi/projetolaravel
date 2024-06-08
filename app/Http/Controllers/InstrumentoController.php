@@ -40,21 +40,25 @@ class InstrumentoController extends Controller
             'nome' => $request->input('nome'),
             'preco' => $request->input('preco')
         ]);
-        return redirect()->back()->with('success', 'Instrumento inserido com sucesso!');   
+
+        Instrumento::create($request->all());
+        return redirect()->route('instrumento.index')->with('success', 'Instrumento inserido com sucesso!');   
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
         //Método GET
+        $instrumento = Instrumento::findOrFail($id);
+        return view('instrumento.show', compact('instrumento'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
         //Mostrar o formulário de edição
         //Método GET
@@ -65,7 +69,7 @@ class InstrumentoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         //Salvar as alterações em um registro
         //Método PUT
@@ -75,7 +79,10 @@ class InstrumentoController extends Controller
             'nome' => $request->input('nome'),
             'preco' => $request->input('preco')
         ]);
-        return "Registro alterado com sucesso!";
+
+        $instrumento = Instrumento::findOrFail($id);
+        $instrumento->update($request->all());
+        return redirect()->route('instrumento.index')->with('success', 'Instrumento atualizado com sucesso!');
     }
 
     /**
@@ -87,7 +94,7 @@ class InstrumentoController extends Controller
         //Excluir o registro
         $instrumento = Instrumento::findOrFail($id);
         $instrumento->delete();
-        return "Registro alterado com sucesso!";
+        return redirect()->route('instrumento.index')->with('success', 'Instrumento deletado com sucesso!');
     }
 
     public function delete(string $id)

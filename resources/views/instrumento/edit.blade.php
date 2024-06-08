@@ -22,6 +22,15 @@
 
     <main class="container">
     <h1>Formulário de Alteração de Instrumentos</h1>
+      @if ($errors->any())
+        <div class="alert alert-danger">
+          <div>
+              @foreach ($errors->all() as $error)
+                <span>{{ $error }}</span>
+              @endforeach
+          </div>
+        </div>
+      @endif
     <form action="{{ route('instrumento.update', $instrumento->id) }}" method="POST">   
         @CSRF
         @method('PUT')
@@ -31,7 +40,7 @@
         <input class="form-control" type="text" name="nome" id="nome" value="{{ $instrumento->nome }}" required> <br/>
         <label for="preco"> Informe o preco do Instrumento </label>
         <input class="form-control" type="text" name="preco" id="preco" value="{{ $instrumento->preco }}" required> <br/>
-        <button type="submit" class="btn btn-dark"> Salvar </button>
+        <button type="submit" class="btn btn-dark"> Atualizar </button>
     </form>
 </body>
 </html>

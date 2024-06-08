@@ -21,25 +21,24 @@
     </div>
 
     <main class="container">
-    <h1>Formulário de Inserção de Instrumentos</h1>
-        @if ($errors->any())
-        <div class="alert alert-danger">
-          <div>
-              @foreach ($errors->all() as $error)
-                <span>{{ $error }}</span>
-              @endforeach
-          </div>
+    <h1>Mostrar Instrumentos</h1>
+    <div>
+            <label class="form-label"><strong>ID:</strong></label>
+            <p>{{ $instrumento->id }}</p>
         </div>
-        @endif
-      <form action="{{ route('instrumento.store') }}" method="POST">
-        @CSRF
-        <label for="tipo"> Informe o tipo do Instrumento: </label>
-        <input type="text" class="form-control" name="tipo" id="tipo" required> <br/>
-        <label for="nome"> Informe o nome do Instrumento:</label>
-        <input type="text" class="form-control" name="nome" id="nome" required> <br/>
-        <label for="preco"> Informe o preco do Instrumento:</label>
-        <input type="text" class="form-control" name="preco" id="preco" required> <br/>
-        <button type="submit" class="btn btn-dark"> Salvar </button>
-    </form>
-</body>
+        <div>
+            <label class="form-label"><strong>Tipo:</strong></label>
+            <p>{{ $instrumento->tipo }}</p>
+        </div>
+        <div>
+            <label class="form-label"><strong>Nome:</strong></label>
+            <p>{{ $instrumento->nome }}</p>
+        </div>
+        <div>
+            <label class="form-label"><strong>Preço:</strong></label>
+            <p>{{ $instrumento->preco }}</p>
+        </div>
+        <a href="{{ route('instrumento.index') }}" class="btn btn-secondary">Voltar</a>
+    </div>
+  </body>
 </html>
