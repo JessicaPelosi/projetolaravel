@@ -19,7 +19,16 @@
     </nav>
 
     <main class="container">
-        <h1> Instrumentos </h1>
+    <div style="padding: 1%;">
+        <nav class="navbar navbar-dark" style="background-color: MidnightBlue;  border-radius: 10px;">
+        <div class="container-fluid">
+            <img src="https://img.icons8.com/?size=100&id=wMPzn3Oho5QE&format=png&color=000000" alt="" width="30" height="24">
+            <a class="navbar-brand"> Loja de instrumentos </a>
+            <form class="d-flex">
+            </form>
+        </div>
+        </nav>
+    </div>
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 {{ $message }}
@@ -43,7 +52,7 @@
                     <td>{{ $i->nome }}</td>
                     <td> R$ &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ $i->preco }}</td>
                     <td style="text-align: right;">
-                        <a href="{{ route('instrumento.show', $i->id) }}" class="btn btn-dark"><b> Mostrar </b></a>
+                        <a href="{{ route('instrumento.show', $i->id) }}" class="btn btn-primary"><b> Mostrar </b></a>
                         <a href="{{ route('instrumento.edit', $i->id) }}" class="btn btn-dark"><b> Editar </b></a>
                         <a href="{{ route('instrumento.delete', $i->id) }}" class="btn btn-danger"><b> Excluir </b></a>
                     </td>

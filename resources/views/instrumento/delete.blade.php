@@ -17,7 +17,7 @@
     </nav>
 
     <div style="padding: 0.5%;">
-        <a href="/instrumento"> <button class="btn btn-dark"> Voltar </button> </a>
+        <a href="/instrumento"> <button class="btn btn-danger"><b> Cancelar </b></button></a>
     </div>
 
     <main class="container">
@@ -40,7 +40,7 @@
     <form action="{{ route('instrumento.destroy', $instrumento->id) }}" method="POST">
         @CSRF
         @method('DELETE')
-        <button type="submit" class="btn btn-danger">Excluir</button>
+        <button type="submit" class="btn btn-warning" style="color: black;"><b> Excluir </b></button>
         
         <!-- <label for="tipo"> Informe o tipo do Instrumento </label>
         <input class="form-control" type="text" name="tipo" id="tipo" value="{{ $instrumento->tipo}}" disabled> <br/>

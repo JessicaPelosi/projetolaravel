@@ -21,11 +21,7 @@
     </div>
 
     <main class="container">
-    <h1>Mostrar Instrumentos</h1>
-    <div>
-            <label class="form-label"><strong>ID:</strong></label>
-            <p>{{ $instrumento->id }}</p>
-        </div>
+    <h1>Mostrar Instrumento</h1>
         <div>
             <label class="form-label"><strong>Tipo:</strong></label>
             <p>{{ $instrumento->tipo }}</p>
@@ -38,7 +34,6 @@
             <label class="form-label"><strong>Preço:</strong></label>
             <p>{{ $instrumento->preco }}</p>
         </div>
-        <a href="{{ route('instrumento.index') }}" class="btn btn-secondary">Voltar</a>
     </div>
   </body>
 </html>
